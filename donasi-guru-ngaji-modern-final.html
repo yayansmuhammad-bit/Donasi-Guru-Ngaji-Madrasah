@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donasi Guru Ngaji Modern</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Segoe UI,Tahoma,sans-serif;background:#f6f8f7;color:#222}
+.hero{position:relative;height:650px;border-radius:30px;overflow:hidden;margin:25px}
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:2}
+.hero-content{position:relative;z-index:3;color:#fff;text-align:center;max-width:800px;margin:auto;padding-top:180px}
+.hero-content h1{font-size:3rem;margin-bottom:20px}
+.hero-content p{font-size:1.2rem;margin-bottom:25px}
+.btn-donate{background:#f4b400;color:#222;padding:15px 35px;border-radius:50px;text-decoration:none;font-weight:bold}
+.container{max-width:1200px;margin:auto;padding:20px}
+.card{background:#fff;padding:25px;border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,.06);margin-bottom:25px}
+.section-title{text-align:center;color:#0d6b4c;margin:40px 0 20px}
+.progress-bar{height:22px;background:#e5e7eb;border-radius:20px;overflow:hidden}
+.progress-fill{height:100%;width:8.35%;background:#f4b400;color:#fff;text-align:center;line-height:22px;font-size:12px}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.impact-card{background:#fff;padding:25px;border-radius:20px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+.impact-card i{font-size:40px;color:#0d6b4c}
+input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
+.btn{background:#0d6b4c;color:#fff;border:none;padding:12px 25px;border-radius:30px;cursor:pointer}
+.footer{background:#0d6b4c;color:#fff;text-align:center;padding:25px;margin-top:40px}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<img id="heroSlide" class="hero-slide" src="https://cdn.antaranews.com/cache/1200x800/2026/03/12/IMG-20260312-WA0095.jpg">
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<h1>Bantu Guru Ngaji Dengan Zakat & Donasi Anda</h1>
+<p>Setiap rupiah yang Anda salurkan menjadi dukungan nyata bagi guru ngaji dan madrasah.</p>
+<a href="#donasi" class="btn-donate">Donasi Sekarang</a>
+</div>
+</section>
+
+<div class="container">
+<h2 class="section-title">📊 Progress Donasi</h2>
+<div class="card">
+<p>Terkumpul <strong>Rp 8.350.000</strong> dari target <strong>Rp 100.000.000</strong></p>
+<div class="progress-bar"><div class="progress-fill">8.35%</div></div>
+</div>
+
+<h2 class="section-title">✨ Dampak Kebaikan Anda</h2>
+<div class="impact-grid">
+<div class="impact-card"><i class="fas fa-user-tie"></i><h3>50+</h3><p>Guru Dibantu</p></div>
+<div class="impact-card"><i class="fas fa-book-open"></i><h3>2000+</h3><p>Santri Terbantu</p></div>
+<div class="impact-card"><i class="fas fa-mosque"></i><h3>35+</h3><p>Madrasah Binaan</p></div>
+</div>
+
+<h2 class="section-title" id="donasi">❤️ Form Donasi</h2>
+<div class="card">
+<form onsubmit="kirimDonasi(event)">
+<input type="text" id="nama" placeholder="Nama Lengkap" required>
+<input type="email" placeholder="Email">
+<input type="number" id="nominal" placeholder="Nominal Donasi" required>
+<textarea id="pesan" placeholder="Doa / Pesan"></textarea>
+<button class="btn" type="submit">Kirim Donasi</button>
+</form>
+</div>
+</div>
+
+<div class="footer">© Donasi Guru Ngaji</div>
+
+<script>
+const slides=[
+"https://cdn.antaranews.com/cache/1200x800/2026/03/12/IMG-20260312-WA0095.jpg",
+"https://lazharfa.org/wp-content/uploads/2025/11/Thumbnail-Guru-ngaji.jpg",
+"https://solusipeduli-org.b-cdn.net/wp-content/uploads/2026/02/2801-Banner-Solped-Guru-Ngaji-Pelosok-DIG.jpg",
+"https://banyuwangikab.go.id/media/berita/original/tmhectlsom_whatsapp-image-2025-10-22-at-110136.jpeg"
+];
+let current=0;
+setInterval(()=>{
+current=(current+1)%slides.length;
+document.getElementById('heroSlide').src=slides[current];
+},4000);
+
+function kirimDonasi(e){
+e.preventDefault();
+const nama=document.getElementById('nama').value;
+const nominal=document.getElementById('nominal').value;
+const pesan=document.getElementById('pesan').value;
+
+alert("Silakan transfer ke:\n\nBank Jatim\nNo Rekening: 0267729611\na.n. Yayang Setiawan");
+
+window.open("https://wa.me/6285854334006?text="+encodeURIComponent(
+"Assalamu'alaikum\nNama: "+nama+"\nNominal: Rp "+nominal+"\nPesan: "+pesan
+),"_blank");
+}
+</script>
+</body>
+</html>
